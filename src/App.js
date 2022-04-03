@@ -1,7 +1,7 @@
 import React from 'react';
-import Expenses from './components/Expenses';
+import Expenses from './components/Expenses/Expenses';
 
-function App() {
+const App = () => {
   
   const expenses = [
     {
@@ -38,7 +38,7 @@ function App() {
   //   React.createElement(Expenses, {items: expenses}),
   // )
 
-  /// 반환할 때, 오직 1개의 wrapper 가 있어야 하는 이유는.
+  /// 반환할 때, 오직 1개의 wrapper JSX Element가 있어야 하는 이유는.
   // return에서 반환할 수 있는 Element가 오직 1개만 가능하기 떄문이다.
   // React.createElement(...) <---- String이 아니라, 엘리먼트기 때문에 2개 이상 반환이 불가능하다는거.
 
