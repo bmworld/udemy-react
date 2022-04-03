@@ -1,4 +1,4 @@
-import ExpenseItem from './components/ExpenseItem.jsx';
+import Expenses from './components/Expenses';
 
 function App() {
   
@@ -29,24 +29,12 @@ function App() {
   ];
 
 
-  let List_ExpenseItem = [];
-  
-  for(let i =0; i < expenses.length; i++){
-    List_ExpenseItem.push(<ExpenseItem
-      key= {i} 
-      title={expenses[i].title}
-      amount={expenses[i].amount}
-      date={expenses[i].date}
-    ></ExpenseItem>)
-  }
-
-
 
   return (
-    <div>
+    <main>
       <h2>Let's get started!!!!</h2>
-      {List_ExpenseItem}
-    </div>
+      <Expenses items={expenses}/>
+    </main>
   );
 }
 
