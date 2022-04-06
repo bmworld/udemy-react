@@ -25,6 +25,15 @@ const App = () => {
     },
   ];
 
+  const addExpenseHandler = (expense) => {
+    console.log('In app.js')
+    console.log(expense)
+    
+  }
+
+
+
+
   // 순수 REACT 문법
   // return React.createElement(
   //   'div',
@@ -40,7 +49,7 @@ const App = () => {
   // JSX 문법
   return (
     <main>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <Expenses items={expenses} />
     </main>
   );

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './ExpenseForm.css';
 
 
-function ExpenseForm() {
+function ExpenseForm(props) {
 
   // Method 1 => seperated Management
   const [enteredTitle, setEnteredTitle] = useState('');
@@ -73,13 +73,17 @@ function ExpenseForm() {
       amount: enteredAmount,
       date: new Date(enteredDate)
     }
-    console.log(expenseData);
+    // console.log(expenseData);
+    console.log(props.onSaveExpenseData(expenseData))
+    
     // initialize Values
     setEnteredTitle('');
     setEnteredAmount('');
     setEnteredDate('');
     
   }
+
+  
 
 
 
