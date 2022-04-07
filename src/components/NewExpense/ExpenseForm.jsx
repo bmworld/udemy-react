@@ -74,7 +74,7 @@ function ExpenseForm(props) {
       date: new Date(enteredDate)
     }
     // console.log(expenseData);
-    console.log(props.onSaveExpenseData(expenseData))
+    console.log('ExpenseForm.jsx > ' + props.onSaveExpenseData(expenseData))
     
     // initialize Values
     setEnteredTitle('');
