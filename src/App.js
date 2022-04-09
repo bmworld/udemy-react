@@ -31,7 +31,7 @@ const DUMMY_EXPENSES = [
     id: "e5",
     title: "The Dream",
     amount: 450,
-    date: new Date(2022, 5, 12),
+    date: new Date(2019, 5, 12),
   },
 ];
 
@@ -39,12 +39,12 @@ const DUMMY_EXPENSES = [
 
 const App = () => {
   const [expenses, setExpenses] =useState(DUMMY_EXPENSES);
-  console.log(expenses);
+  // console.log(expenses);
 
 
   const addExpenseHandler = (expense) => {
     // setExpenses([expense, ...expense]); // 새로운 지출을 배열의 첫번째 인자로, 두번째 인자는 새로운 배열의 나머지를 기존 요소들로 채워준다.
-    console.log(expense)
+    // console.log(expense)
     setExpenses((prevExpenses) => {
       // return [...prevExpenses, expense]; // * 배열을 만드는 순서: PrevItem, NewItem
       return [expense, ...prevExpenses]; // * 배열을 만드는 순서: NewItem, PrevItem

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Card from "../UI/Card";
-import ExpenseItem from "./ExpenseItem.jsx";
 import "./Expenses.css";
 import ExpenseFilter from "./ExpenseFilter";
+import ExpensesList from "./ExpensesList";
 // import Test from './TestComponent';
 
 function Expenses(props) {
@@ -27,14 +27,12 @@ function Expenses(props) {
 
   const filteredExpenses = props.items.filter( expense => {
     const thisExpenseYear = expense.date.getFullYear().toString();
-    console.log(thisExpenseYear);
-    console.log(filteredYear);
     if (filteredYear === "unselected" || filteredYear === thisExpenseYear) {
       return expense;
     }
-    
   });
-  console.log(filteredExpenses);
+  // console.log(filteredExpenses);
+
 
   return (
     <>
@@ -43,22 +41,15 @@ function Expenses(props) {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
+
         {/* Component를 배열안에서 여러 개를 동시에 넣을 수 있다. */}
         {/* {[<Test />, <Test />,<Test />, <Test />,]} */}
 
+        {/* // * Udemy강사님 VER. */}
+        <ExpensesList items={filteredExpenses} />
+
         {/* // * 노가다 VER. */}
         {/* {list_ExpenseItem} */}
-        {/* // * Udemy강사님 VER. */}
-        {filteredExpenses.map((expense) => {
-          return (
-            <ExpenseItem
-              key={expense.id}
-              title={expense.title}
-              amount={expense.amount + 2}
-              date={expense.date}
-            />
-          );
-        })}
 
         {/* // * Filtered Expense적용하기 노가다 VER. */}
         {/* {props.items.map((expense) => {

@@ -67,13 +67,18 @@ function ExpenseForm(props) {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    
+
+    if(!enteredTitle || !enteredAmount || !enteredDate ) {
+      alert('빈칸없이 입력해주세요.');
+      return;
+    }
+
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
       date: new Date(enteredDate)
     }
-    // console.log(expenseData);
+
     // console.log('ExpenseForm.jsx > ' + props.onSaveExpenseData(expenseData))
     props.onSaveExpenseData(expenseData);
     // initialize Values
@@ -83,9 +88,14 @@ function ExpenseForm(props) {
     
   }
 
-  
-
-
+  // 필요가 없다...?? 어차피 랜더가 되면, 기존에 갖고 있던 값이 사라지기 떄문에....??
+  // const cancelHandler = (e) => {
+  //   // form 사라진다 / 초기화된다 // New Add Expense 버튼 나타난다.
+  //   props.onCancel();
+  //   setEnteredTitle("");
+  //   setEnteredAmount("");
+  //   setEnteredDate("");
+  // }
 
 
   return (
@@ -93,22 +103,40 @@ function ExpenseForm(props) {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label htmlFor="">Title</label>
-          <input type="text" value={enteredTitle} onChange={titleChangeHandler} />
+          <input
+            type="text"
+            value={enteredTitle}
+            onChange={titleChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label htmlFor="">Amount</label>
-          <input type="number"  min="0" step=".1" value={enteredAmount} onChange={amountChangeHandler}/>
+          <input
+            type="number"
+            min="0"
+            step=".1"
+            value={enteredAmount}
+            onChange={amountChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label htmlFor="">Date</label>
-          <input type="date"  min="2019-01-01" max="2022-05-07" value={enteredDate} onChange={dateChangeHandler}/>
+          <input
+            type="date"
+            min="2019-01-01"
+            max="2022-05-07"
+            value={enteredDate}
+            onChange={dateChangeHandler}
+          />
         </div>
       </div>
       <div className="new-expense__actions">
-        <button type='submit'>Add Expense</button>
+        {/* <button type="button" onClick={cancelHandler}>Cancel</button> */}
+        <button type="button" onClick={props.onCancel}>Cancel</button>
+        <button type="submit">Add Expense</button>
       </div>
     </form>
-  )
+  );
 }
 
 export default ExpenseForm;
