@@ -74,8 +74,8 @@ function ExpenseForm(props) {
       date: new Date(enteredDate)
     }
     // console.log(expenseData);
-    console.log('ExpenseForm.jsx > ' + props.onSaveExpenseData(expenseData))
-    
+    // console.log('ExpenseForm.jsx > ' + props.onSaveExpenseData(expenseData))
+    props.onSaveExpenseData(expenseData);
     // initialize Values
     setEnteredTitle('');
     setEnteredAmount('');
@@ -97,11 +97,11 @@ function ExpenseForm(props) {
         </div>
         <div className="new-expense__control">
           <label htmlFor="">Amount</label>
-          <input type="number"  min=".01" step=".1" value={enteredAmount} onChange={amountChangeHandler}/>
+          <input type="number"  min="0" step=".1" value={enteredAmount} onChange={amountChangeHandler}/>
         </div>
         <div className="new-expense__control">
           <label htmlFor="">Date</label>
-          <input type="date"  min="2019-01-01" max="2022-04-07" value={enteredDate} onChange={dateChangeHandler}/>
+          <input type="date"  min="2019-01-01" max="2022-05-07" value={enteredDate} onChange={dateChangeHandler}/>
         </div>
       </div>
       <div className="new-expense__actions">
