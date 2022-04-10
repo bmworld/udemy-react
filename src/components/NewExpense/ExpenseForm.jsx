@@ -80,7 +80,7 @@ function ExpenseForm(props) {
     const expenseData = {
       title: enteredTitle,
       // amount: Number(enteredAmount),
-      amount: +enteredAmount, // ! +기호를 붙이면, Number Type으로 변환된다.헐..
+      amount: +enteredAmount, // ! +기호를 붙이면, Number Type으로 변환된다.
       date: new Date(enteredDate)
     }
 
@@ -90,12 +90,13 @@ function ExpenseForm(props) {
     setEnteredTitle('');
     setEnteredAmount('');
     setEnteredDate('');
+    props.onCancel();
     
   }
 
   // 필요가 없다...?? 어차피 랜더가 되면, 기존에 갖고 있던 값이 사라지기 떄문에....??
   // const cancelHandler = (e) => {
-  //   // form 사라진다 / 초기화된다 // New Add Expense 버튼 나타난다.
+  //   form 사라진다 / 초기화된다 // New Add Expense 버튼 나타난다.
   //   props.onCancel();
   //   setEnteredTitle("");
   //   setEnteredAmount("");
