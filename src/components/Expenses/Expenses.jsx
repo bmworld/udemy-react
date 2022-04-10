@@ -3,6 +3,7 @@ import Card from "../UI/Card";
 import "./Expenses.css";
 import ExpenseFilter from "./ExpenseFilter";
 import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpenseChart";
 // import Test from './TestComponent';
 
 function Expenses(props) {
@@ -25,13 +26,10 @@ function Expenses(props) {
   //   ></ExpenseItem>)
   // }
 
-  const filteredExpenses = props.items.filter( expense => {
+  const filteredExpenses = props.items.filter( (expense) => {
     const thisExpenseYear = expense.date.getFullYear().toString();
-    if (filteredYear === "unselected" || filteredYear === thisExpenseYear) {
-      return expense;
-    }
+    if (filteredYear === "unselected" || filteredYear === thisExpenseYear) return expense;
   });
-  // console.log(filteredExpenses);
 
 
   return (
@@ -41,6 +39,7 @@ function Expenses(props) {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
+        <ExpensesChart expenses={filteredExpenses}/>
 
         {/* Component를 배열안에서 여러 개를 동시에 넣을 수 있다. */}
         {/* {[<Test />, <Test />,<Test />, <Test />,]} */}

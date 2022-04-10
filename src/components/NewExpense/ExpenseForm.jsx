@@ -73,9 +73,14 @@ function ExpenseForm(props) {
       return;
     }
 
+    // console.log(enteredAmount)
+    // console.log(+enteredAmount)
+    // console.log(typeof +enteredAmount === typeof Number(enteredAmount));
+    
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      // amount: Number(enteredAmount),
+      amount: +enteredAmount, // ! +기호를 붙이면, Number Type으로 변환된다.헐..
       date: new Date(enteredDate)
     }
 
